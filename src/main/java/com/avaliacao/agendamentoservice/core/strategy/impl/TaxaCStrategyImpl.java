@@ -1,5 +1,6 @@
 package com.avaliacao.agendamentoservice.core.strategy.impl;
 
+import com.avaliacao.agendamentoservice.app.adapter.configuration.exception.BusinessException;
 import com.avaliacao.agendamentoservice.core.entity.model.AgendamentoEntity;
 import com.avaliacao.agendamentoservice.core.strategy.TaxaStrategy;
 
@@ -9,7 +10,7 @@ public class TaxaCStrategyImpl implements TaxaStrategy {
     @Override
     public void verificaTaxa(AgendamentoEntity entity) {
         if(!entity.getDataTransferencia().isBefore(LocalDate.now().plusDays(10))){
-            throw new RuntimeException();
+            throw new BusinessException("Data de transfêrencia maior que 10 dias.");
         }
         if(verificaData(entity.getDataTransferencia(), 10, 20)){
             entity.setTaxaTransferencia((8.2f));

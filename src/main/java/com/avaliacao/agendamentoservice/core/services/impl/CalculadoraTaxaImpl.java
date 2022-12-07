@@ -1,5 +1,6 @@
 package com.avaliacao.agendamentoservice.core.services.impl;
 
+import com.avaliacao.agendamentoservice.app.adapter.configuration.exception.BusinessException;
 import com.avaliacao.agendamentoservice.app.adapter.entrypoint.enuns.TipoTaxa;
 import com.avaliacao.agendamentoservice.core.entity.model.AgendamentoEntity;
 import com.avaliacao.agendamentoservice.core.services.CalculadoraTaxa;
@@ -27,7 +28,7 @@ public class CalculadoraTaxaImpl implements CalculadoraTaxa {
                 new TaxaDStrategyImpl().verificaTaxa(entity);
                 break;
             default:
-                throw new RuntimeException();
+                throw new BusinessException("Tipo de Taxa Inválido.");
         }
         calculaValorTotal(entity);
     }

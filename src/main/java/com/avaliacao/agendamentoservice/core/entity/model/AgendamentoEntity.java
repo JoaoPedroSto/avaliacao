@@ -1,8 +1,6 @@
 package com.avaliacao.agendamentoservice.core.entity.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,16 +13,25 @@ import java.time.LocalDate;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "agendamento")
 public class AgendamentoEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
+    @Column
     private Integer contaOrigem;
+    @Column
     private Integer contaDestino;
+    @Column
     private float valorTransferencia;
+    @Column
     private float taxaTransferencia;
+    @Column
     private int acrescimo;
+    @Column
     private float valorTotalTransferencia;
+    @Column
     private LocalDate dataTransferencia;
+    @Column
     private LocalDate dataCadastro;
 }
