@@ -1,11 +1,11 @@
 package com.avaliacao.agendamentoservice.core.entity.model;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
@@ -16,7 +16,7 @@ import java.time.LocalDate;
 @Table(name = "agendamento")
 public class AgendamentoEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
     @Column
     private Integer contaOrigem;

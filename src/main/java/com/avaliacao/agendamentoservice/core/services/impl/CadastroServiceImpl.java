@@ -16,7 +16,6 @@ public class CadastroServiceImpl implements CadastroService {
     private AgendamentoFactory agendamentoFactory;
     @Autowired
     private AgendamentoRepository repository;
-
     @Autowired
     private CalculadoraTaxa calculadoraTaxa;
     @Override

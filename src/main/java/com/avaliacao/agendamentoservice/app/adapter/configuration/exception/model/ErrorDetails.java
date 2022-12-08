@@ -2,8 +2,6 @@ package com.avaliacao.agendamentoservice.app.adapter.configuration.exception.mod
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
-
-import java.util.List;
 @Data
 public class ErrorDetails {
     private String error;
