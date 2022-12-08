@@ -1,64 +1,27 @@
-# Instruções
-Fazer um fork desse projeto e commitar o seu desenvolvimento
+# Avaliação Agendamento
+Desafio proposto referente a um sistemas de agendamento de transferências.
 
+# Tecnologias
+**Maven** - Gerenciamento de dependências do projeto.
 
-# Entregáveis
- Pequena documentação no README explicando suas decisões arquiteturais, versões de linguagem,
-ferramentas utilizadas e instruções para a subida do projeto.
+**Lombok** - Responsável por gerar os getter, setter e o builder das classes de modelo.
 
- É obrigatório a criação de um projeto no seu Github para que vejamos os passos feitos
-através dos commits.
+**JUnit** - Para testes unitários.
 
-# Avaliação
+**ModelMapper** - Para realizar o mapeamento das classes dto para entity.
 
-O objetivo dessa tarefa é avaliar como você vai desenvolver o código em termos de estilo,
-eficiência, qualidade e prazo de entrega.
+**H2** - Banco SQL em memória para armazenamento de dados das entidades.
 
-A tarefa é a seguinte:
+**Java 17** - Versão da linguagem utilizada.
 
-Desenvolver um sistema de agendamento de transferências financeiras.
+No projeto, são utilizado conceitos de S.O.L.I.D.
 
-1) O usuário deve poder agendar uma transferência financeira com as seguintes
- informações:
- Conta de origem (padrão XXXXXX)
- Conta de destino (padrão XXXXXX)
- Valor da transferência
- Taxa (a ser calculada)
- Data da transferência (data que será realizada a transferência)
- Data de agendamento (hoje)
- 
-2) Cada tipo de transação segue uma regra diferente para cálculo da taxa
+# Iniciando o projeto
 
- A: Tranferências no mesmo dia do agendamento tem uma taxa de $3 mais 3% do valor a
-ser transferido;
+Após do download do fonte e utilizando de um terminal, navegar até o diretório onde se encontra o projeto e executar o
+comando do maven a seguir:
+```shell
+mvn clean install
+```
 
-B: Tranferências até 10 dias da data de agendamento possuem uma taxa de $12.
-
-C: Operações do tipo C tem uma taxa regressiva conforme a data de
-transferência:
-
- acima de 10 dias da data de agendamento 8.2%
- 
- acima de 20 dias da data de agendamento 6.9%
- 
- acima de 30 dias da data de agendamento 4.7%
- 
- acima de 40 dias da data de agendamento 1.7%
- 
- D: Operações do tipo D tem a taxa igual a A, B ou C dependendo do valor da
-transferência.
-
- Valores até $1.000 seguem a taxação tipo A
- 
- Valores de $1.001 até $2.000 seguem a taxação tipo B
- 
- Valores maiores que $2.000 seguem a taxação tipo C
- 
-Obs: Caso não haja taxa aplicável, lançar um alerta sobre o erro.
-
-3) O usuário deve poder ver todos os agendamentos cadastrados.
-
-Nota: A persistência deve ser feita em banco de dados em memória (h2, por exemplo).
-Boa sorte!
-
-
+Feito isso o projeto pode ser utilizado na IDE de escolha.
